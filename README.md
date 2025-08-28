@@ -41,8 +41,6 @@ It demonstrates features such as **lazy loading, inline editing, and row managem
 - **React 18** + **TypeScript**  
 - **TailwindCSS** + **Radix UI** + **Lucide React**  
 - **TanStack React Virtual** / **React Window** for virtualization  
-- **CRACO** for configuration overrides  
-- **Jest + React Testing Library** for testing  
 
 ---
 
@@ -52,3 +50,4 @@ It demonstrates features such as **lazy loading, inline editing, and row managem
 git clone https://github.com/vudung18110263/dangvudung-fe-test.git
 cd dangvudung-fe-test
 npm install
+npm start
