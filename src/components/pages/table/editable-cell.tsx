@@ -97,9 +97,7 @@ export function EditableCell({ value, onSave, fieldType = "text", options = [], 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setEditValue(e.target.value);
 
-    // if (fieldType === "select") onSave(e.target.value);
-    // handleSave();
-    onSave(e.target.value)
+    if (fieldType === "select") onSave(e.target.value);
     if (error) {
       setError(null);
     }
@@ -128,8 +126,8 @@ export function EditableCell({ value, onSave, fieldType = "text", options = [], 
               ))}
             </select>
           ) : multiline ? (
-            <textarea
-              ref={inputRef as React.RefObject<HTMLTextAreaElement>}
+            <input
+              ref={inputRef as React.RefObject<HTMLInputElement>}
               value={editValue}
               onChange={handleChange}
               onBlur={handleBlur}
@@ -138,7 +136,6 @@ export function EditableCell({ value, onSave, fieldType = "text", options = [], 
               className={`flex-1 bg-background border rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary resize-none ${
                 error ? "border-destructive focus:ring-destructive" : "border-ring"
               }`}
-              rows={2}
             />
           ) : (
             <input
@@ -156,14 +153,14 @@ export function EditableCell({ value, onSave, fieldType = "text", options = [], 
           )}
 
           {/* Action buttons */}
-          {/* <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1">
             <button onClick={handleBlur} className="p-1 text-green-600 hover:bg-green-100 rounded transition-colors" title="Save (Enter)">
               <Check className="h-3 w-3" />
             </button>
             <button onClick={handleCancel} className="p-1 text-red-600 hover:bg-red-100 rounded transition-colors" title="Cancel (Esc)">
               <X className="h-3 w-3" />
             </button>
-          </div> */}
+          </div>
         </div>
 
         {/* Error message */}

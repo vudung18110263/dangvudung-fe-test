@@ -155,6 +155,7 @@ export function DataTable({
         <div className="flex items-center gap-2">
           <div className={`relative ${isEdited ? "ring-1 ring-primary/50 rounded" : ""}`}>
             <EditableCell
+              key={row.id + "-" + column.key}
               value={value}
               onSave={(newValue) => onCellEdit(row.id, column.key, newValue)}
               fieldType={column.fieldType}
@@ -170,6 +171,7 @@ export function DataTable({
     return (
       <div className={`relative ${isEdited ? "ring-1 ring-primary/50 rounded" : ""}`}>
         <EditableCell
+          key={row.id + "-" + column.key}
           value={value}
           onSave={(newValue) => onCellEdit(row.id, column.key, newValue)}
           fieldType={column.fieldType}
